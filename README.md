@@ -1,4 +1,12 @@
-# FormsApp
+# Forms App
+
+This is a simple forms demostrative app.
+
+Template forms and reactive forms.
+
+Custom directive example for template form added.
+
+Based on the projects by Fernando Herrera - https://www.udemy.com/course/angular-fernando-herrera/
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.1.1.
 
