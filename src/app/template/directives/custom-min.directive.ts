@@ -19,6 +19,4 @@ export class CustomMinDirective implements Validator {
         return (control.value < this.minimun) ? {'CustomMin': true} : null;
     }
 
-
-
 }
