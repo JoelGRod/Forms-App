@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-switches',
@@ -6,11 +6,17 @@ import { Component, OnInit } from '@angular/core';
   styles: [
   ]
 })
-export class SwitchesComponent implements OnInit {
+export class SwitchesComponent {
 
-  constructor() { }
+  public person = {
+    gender: '',
+    notifications: true
+  }
 
-  ngOnInit(): void {
+  public terms: boolean = false;
+
+  save(): void {
+    console.log("Form saved");
   }
 
 }
