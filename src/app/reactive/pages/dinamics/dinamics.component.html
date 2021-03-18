@@ -1,1 +1,78 @@
-<p>dinamics reactive works!</p>
+<h3>Reactive: <small>Dinamics</small></h3>
+<hr>
+
+<div class="row">
+    <div class="col">
+
+        <form (ngSubmit)="save()" [formGroup]="dinamics_form" autocomplete="off">
+            <!-- Form field -->
+            <div class="mb-3 row">
+                <label for="" class="col-sm-2 col-form-label">Name</label>
+                <div class="col-sm-10">
+                    <input type="text" 
+                            class="form-control"
+                            formControlName="name"
+                            placeholder="Insert name">
+                    <span class="form-text text-danger"
+                            *ngIf="field_not_valid('name')">
+                        Field required
+                    </span>
+                </div>
+            </div>
+
+            <!-- Form field -->
+            <div class="mb-3 row">
+                <label for="" class="col-sm-2 col-form-label">Add</label>
+                <div class="col-sm-10">
+
+                    <div class="input-group">
+                        <input type="text" 
+                                class="form-control"
+                                [formControl]="new_favourite"
+                                (keyup.enter)="add_favourite()"
+                                placeholder="Add favourite">
+                        <button type="button" 
+                                class="btn btn-outline-primary"
+                                (click)="add_favourite()">Add</button>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Form field -->
+            <div class="mb-3 row">
+                <label for="" class="col-sm-2 col-form-label">Favourites</label>
+                <div class="col-sm-10" formArrayName="favourites">
+
+                    <div class="input-group mb-1" *ngFor="let fav of fav_array.controls; index as i">
+                        <input class="form-control" [formControlName]="i">
+                        <button type="button" class="btn btn-outline-danger">Delete</button>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Form button -->
+            <div class="row">
+                <div class="col">
+                    <button type="submit" 
+                            class="btn btn-primary float-end px-4"
+                            [disabled]="this.dinamics_form.invalid">
+                            Save
+                    </button>
+                </div>
+            </div>
+
+        </form>
+
+    </div>
+</div>
+
+<!-- <span>Person</span>
+<pre>{{ person | json }}</pre> -->
+<span>Form Values</span>
+<pre>{{ dinamics_form.value | json }}</pre>
+<span>Valid</span>
+<pre>{{ dinamics_form.valid | json }}</pre>
+<span>Name Errors</span>
+<pre>{{ dinamics_form.controls.name.errors | json }}</pre>

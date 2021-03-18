@@ -1,1 +1,79 @@
-<p>basics reactive works!</p>
+<h3>Reactive: <small>Basics</small></h3>
+<hr>
+
+<div class="row">
+    <div class="col">
+
+        <form (ngSubmit)="save()" autocomplete="off" [formGroup]="basics_form" >
+            <!-- Form field -->
+            <div class="mb-3 row">
+                <label class="col-sm-2 col-form-label">Product</label>
+                <div class="col-sm-10">
+                    <input type="text" 
+                            class="form-control"
+                            formControlName="name"
+                            placeholder="Product name">
+                    <span class="form-text text-danger"
+                            *ngIf="fieldNotValid('name')">
+                            The name needs at least 3 characters
+                    </span>
+                </div>
+            </div>
+
+            <!-- Form field -->
+            <div class="mb-3 row">
+                <label class="col-sm-2 col-form-label">Price</label>
+                <div class="col-sm-10">
+                    <input type="number" 
+                            class="form-control"
+                            formControlName="price"
+                            placeholder="Product price">
+                    <span class="form-text text-danger"
+                            *ngIf="fieldNotValid('price')">
+                        Minimun value is 0
+                    </span>
+                </div>
+            </div>
+
+            <!-- Form field -->
+            <div class="mb-3 row">
+                <label class="col-sm-2 col-form-label">Stock</label>
+                <div class="col-sm-10">
+                    <input type="number" 
+                            class="form-control"
+                            formControlName="stock"
+                            placeholder="Product stock">
+                    <span class="form-text text-danger"
+                            *ngIf="fieldNotValid('stock')">
+                        Minimun value is 0
+                    </span>
+                </div>
+            </div>
+
+            <!-- Submit button -->
+            <div class="row">
+                <div class="col">
+                    <button type="submit" 
+                            class="btn btn-primary float-end px-4"
+                            [disabled]="basics_form.invalid">
+                            Save
+                    </button>
+                </div>
+            </div>
+        </form>
+
+    </div>
+</div>
+
+<div class="row">
+    <div class="col">
+        <span>Values</span>
+        <pre>{{ basics_form.value | json }}</pre>
+        <span>Valid</span>
+        <pre>{{ basics_form.valid }}</pre>
+        <span>Pristine</span>
+        <pre>{{ basics_form.pristine }}</pre>
+        <span>Touched</span>
+        <pre>{{ basics_form.touched }}</pre>
+    </div>
+</div>

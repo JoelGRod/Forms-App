@@ -1,1 +1,86 @@
-<p>switches reactive works!</p>
+<h3>Reactive: <small>Switches</small></h3>
+<hr>
+
+<div class="row">
+    <div class="col">
+        <form autocomplete="off">
+
+            <!-- Radios -->
+            <div class="row mb-3">
+                <label class="col-sm-2 col-form-label">Gender</label>
+                <div class="col-sm-10 pt-2">
+                    <div class="form-check">
+                        <input class="form-check-input" 
+                                type="radio"
+                                name="gender-radio" 
+                                value="M"
+                                id="radio-1">
+                        <label class="form-check-label" for="radio-1">
+                            Male
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" 
+                                type="radio"
+                                name="gender-radio" 
+                                value="F"
+                                id="radio-2">
+                        <label class="form-check-label" for="radio-2">
+                            Female
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Switch -->
+            <div class="row mb-3">
+                <label class="col-sm-2 col-form-label">Notifications</label>
+                <div class="col-sm-10 pt-2">
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" 
+                                type="checkbox"
+                                id="switch-1">
+                        <label class="form-check-label" for="switch-1">
+                            I want to receive notifications
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Checkbox -->
+            <div class="row mb-3">
+                <label class="col-sm-2 col-form-label"></label>
+                <div class="col-sm-10 pt-2">
+                    <div class="form-check">
+                        <input class="form-check-input" 
+                                type="checkbox"
+                                id="check-1">
+                        <label class="form-check-label" for="check-1">
+                            Terms and Conditions
+                        </label>
+                    </div>
+                    <span class="form-text text-primary">
+                        You must accept terms and conditions
+                    </span>
+                </div>
+            </div>
+
+            <!-- Button -->
+            <div class="row">
+                <div class="col">
+                    <button class="btn btn-primary float-end px-4">
+                        Save
+                    </button>
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+<!-- <pre>Form Values: {{ switchesform.value | json }}</pre>
+<pre>Person Values: {{ person | json }}</pre>
+<pre>Valid?: {{ switchesform.valid }}</pre>
+<pre>Terms Errors: {{ switchesform.controls?.terms?.errors | json}}</pre>
+<pre>Terms Touched: {{ switchesform.controls?.terms?.touched | json}}</pre>
+<pre>Conditions?: {{ terms }} </pre> -->
