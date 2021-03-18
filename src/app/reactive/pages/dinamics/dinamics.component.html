@@ -15,7 +15,7 @@
                             placeholder="Insert name">
                     <span class="form-text text-danger"
                             *ngIf="field_not_valid('name')">
-                        Field required
+                        Name is required
                     </span>
                 </div>
             </div>
@@ -33,7 +33,9 @@
                                 placeholder="Add favourite">
                         <button type="button" 
                                 class="btn btn-outline-primary"
-                                (click)="add_favourite()">Add</button>
+                                (click)="add_favourite()">
+                                Add
+                        </button>
                     </div>
 
                 </div>
@@ -46,8 +48,16 @@
 
                     <div class="input-group mb-1" *ngFor="let fav of fav_array.controls; index as i">
                         <input class="form-control" [formControlName]="i">
-                        <button type="button" class="btn btn-outline-danger">Delete</button>
+                        <button type="button" 
+                                class="btn btn-outline-danger" 
+                                (click)="delete_favourite(i)">
+                                Delete
+                        </button>
                     </div>
+                    <span class="form-text text-danger"
+                            *ngIf="field_not_valid('favourites')">
+                        At least one favourite is required
+                    </span>
 
                 </div>
             </div>
@@ -76,3 +86,5 @@
 <pre>{{ dinamics_form.valid | json }}</pre>
 <span>Name Errors</span>
 <pre>{{ dinamics_form.controls.name.errors | json }}</pre>
+<span>Array Errors</span>
+<pre>{{ dinamics_form.controls.favourites.errors | json }}</pre>

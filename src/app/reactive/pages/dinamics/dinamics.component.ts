@@ -41,6 +41,10 @@ export class DinamicsComponent {
     this.new_favourite.reset();
   }
 
+  delete_favourite(index: number): void {
+    this.fav_array.removeAt(index);
+  }
+
   save(): void {
 
     if(this.dinamics_form.invalid) {
