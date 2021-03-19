@@ -3,7 +3,7 @@
 
 <div class="row">
     <div class="col">
-        <form autocomplete="off">
+        <form (ngSubmit)="save()" [formGroup]="switches_form" autocomplete="off">
 
             <!-- Radios -->
             <div class="row mb-3">
@@ -12,7 +12,7 @@
                     <div class="form-check">
                         <input class="form-check-input" 
                                 type="radio"
-                                name="gender-radio" 
+                                formControlName="gender"
                                 value="M"
                                 id="radio-1">
                         <label class="form-check-label" for="radio-1">
@@ -22,7 +22,7 @@
                     <div class="form-check">
                         <input class="form-check-input" 
                                 type="radio"
-                                name="gender-radio" 
+                                formControlName="gender"
                                 value="F"
                                 id="radio-2">
                         <label class="form-check-label" for="radio-2">
@@ -37,7 +37,8 @@
                 <label class="col-sm-2 col-form-label">Notifications</label>
                 <div class="col-sm-10 pt-2">
                     <div class="form-check form-switch">
-                        <input class="form-check-input" 
+                        <input class="form-check-input"
+                                formControlName="notifications"
                                 type="checkbox"
                                 id="switch-1">
                         <label class="form-check-label" for="switch-1">
@@ -53,6 +54,7 @@
                 <div class="col-sm-10 pt-2">
                     <div class="form-check">
                         <input class="form-check-input" 
+                                formControlName="terms"
                                 type="checkbox"
                                 id="check-1">
                         <label class="form-check-label" for="check-1">
@@ -68,7 +70,9 @@
             <!-- Button -->
             <div class="row">
                 <div class="col">
-                    <button class="btn btn-primary float-end px-4">
+                    <button type="submit" 
+                            class="btn btn-primary float-end px-4" 
+                            [disabled]="switches_form.invalid">
                         Save
                     </button>
                 </div>
@@ -78,9 +82,9 @@
     </div>
 </div>
 
-<!-- <pre>Form Values: {{ switchesform.value | json }}</pre>
+<pre>Form Values: {{ switches_form.value | json }}</pre>
 <pre>Person Values: {{ person | json }}</pre>
-<pre>Valid?: {{ switchesform.valid }}</pre>
-<pre>Terms Errors: {{ switchesform.controls?.terms?.errors | json}}</pre>
-<pre>Terms Touched: {{ switchesform.controls?.terms?.touched | json}}</pre>
-<pre>Conditions?: {{ terms }} </pre> -->
+<pre>Valid?: {{ switches_form.valid }}</pre>
+<pre>Terms Errors: {{ switches_form.controls?.terms?.errors | json}}</pre>
+<pre>Terms Touched: {{ switches_form.controls?.terms?.touched | json}}</pre>
+<!-- <pre>Conditions?: {{ terms }} </pre> -->
