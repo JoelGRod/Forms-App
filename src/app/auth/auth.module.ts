@@ -8,7 +8,10 @@ import { LoginComponent } from './pages/login/login.component';
 
 
 @NgModule({
-  declarations: [RegisterComponent, LoginComponent],
+  declarations: [
+    RegisterComponent, 
+    LoginComponent
+  ],
   imports: [
     CommonModule,
     AuthRoutingModule
