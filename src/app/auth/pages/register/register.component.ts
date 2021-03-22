@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 // Validators Logic (2 options)
 import { cant_be_thing, email_pattern, name_pattern } from 'src/app/shared/validators/validators';
@@ -45,8 +45,10 @@ export class RegisterComponent implements OnInit {
             this.validators_service.cant_be_thing
           ]
         ],
-    password: ['', [Validators.required]],
+    password: ['', [Validators.required, Validators.minLength(6)]],
     password_conf: ['', [Validators.required]],
+  }, {
+    validators: [ this.validators_service.not_equals('password', 'password_conf') ]
   });
 
   constructor(private fb: FormBuilder, 

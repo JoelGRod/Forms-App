@@ -99,6 +99,9 @@
 <span>Form Valid?:</span>
 <pre>{{ register_form.valid }}</pre>
 
+<span>Form Errors?:</span>
+<pre>{{ register_form.errors | json }}</pre>
+
 <span>Name field Errors:</span>
 <pre> {{ register_form.controls.name.errors | json }} </pre>
 
