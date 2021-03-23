@@ -31,7 +31,7 @@
                             placeholder="email">
                     <span class="form-text text-danger" 
                             *ngIf="field_not_valid('email')">
-                        Valid email is required
+                        {{ email_error_msg }}
                     </span>
                 </div>
             </div>
@@ -85,7 +85,7 @@
                 <div class="col">
                     <button type="submit" 
                             class="btn btn-primary px-4 float-end"
-                            [disabled]="register_form.invalid">
+                            [disabled]="register_form.pending">
                             Register
                     </button>
                 </div>
@@ -96,8 +96,14 @@
     </div>
 </div>
 
+<span>Form Status?:</span>
+<pre>{{ register_form.status }}</pre>
+
 <span>Form Valid?:</span>
 <pre>{{ register_form.valid }}</pre>
+
+<span>Form Pending?:</span>
+<pre>{{ register_form.pending }}</pre>
 
 <span>Form Errors?:</span>
 <pre>{{ register_form.errors | json }}</pre>

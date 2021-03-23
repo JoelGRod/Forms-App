@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 // Validators Logic (2 options)
 import { cant_be_thing, email_pattern, name_pattern } from 'src/app/shared/validators/validators';
 import { ValidatorService } from '../../../shared/validators/validator.service';
+import { EmailValidatorService } from '../../../shared/validators/email-validator.service';
 
 @Component({
   selector: 'app-register',
@@ -15,8 +16,17 @@ export class RegisterComponent implements OnInit {
 
   private init_form_values = {
     name: 'Joel Glez',
-    email: 'joel@gmail.com'
+    email: 'test10@test.com'
   };
+
+  // Email error message
+  get email_error_msg(): string {
+    const error = this.register_form.get('email')?.errors;
+    if(error?.required) return 'Email is required';
+    else if(error?.pattern) return 'Email not valid';
+    else if(error?.duplicated_email) return 'Email already exists';
+    else return '';
+  }
 
   /* ------- Custom Validations Logic (Separated in service or plain ts) ------- */
   // private name_pattern: string = "([a-zA-Z]+) ([a-zA-Z]+)";
@@ -38,6 +48,8 @@ export class RegisterComponent implements OnInit {
     email: ['', [
             Validators.required,
             Validators.pattern(this.validators_service.email_pattern)
+          ],[
+            this.email_validator
           ]
         ],
     username: ['', [
@@ -52,14 +64,15 @@ export class RegisterComponent implements OnInit {
   });
 
   constructor(private fb: FormBuilder, 
-              private validators_service: ValidatorService) { }
+              private validators_service: ValidatorService,
+              private email_validator: EmailValidatorService) { }
 
   ngOnInit(): void {
     this.register_form.reset({
       ...this.init_form_values,
       username: 'test',
-      password: 'test',
-      password_conf: 'test',
+      password: '123456',
+      password_conf: '123456',
     });
   }
 
