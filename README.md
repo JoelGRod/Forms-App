@@ -6,6 +6,14 @@ Template forms and reactive forms.
 
 Custom directive example for template form added.
 
+Sync and Async validators examples.
+
+db.json for json web server added in assets for demostrative purposes.
+
+Install json web server and start it with: json-server --watch db.json.
+
+https://www.npmjs.com/package/json-server
+
 Based on the projects by Fernando Herrera - https://www.udemy.com/course/angular-fernando-herrera/
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.1.1.
